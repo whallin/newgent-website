@@ -5,15 +5,15 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "astro build && jampack ./dist",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
     "@astrojs/partytown": "^2.0.1",
-    "@astrojs/prefetch": "^0.4.1",
     "@astrojs/sitemap": "^3.0.1",
     "@astrojs/tailwind": "^5.0.1",
+    "@divriots/jampack": "^0.21.1",
     "astro": "^3.2.3",
     "tailwindcss": "^3.0.24"
   },
