@@ -1,0 +1,46 @@
+---
+import SiteHead from "../components/siteHead.astro";
+import Footer from "../components/footer.astro";
+import { getLanguageFromUrl } from "../i18n/utils";
+
+const language = getLanguageFromUrl(Astro.url);
+const { title, description } = Astro.props;
+---
+
+<html lang={language}>
+  <head>
+    <SiteHead />
+    <!-- Basic SEO -->
+    <title>{title} | Newgent Digital</title>
+    <meta name="description" content={description} />
+    <meta itemprop="name" content=`${title} | Newgent Digital` />
+    <meta itemprop="description" content={description} />
+    <meta property="og:title" content=`${title} | Newgent Digital` />
+    <meta property="og:description" content={description} />
+    <meta property="twitter:title" content=`${title} | Newgent Digital` />
+    <meta property="twitter:description" content={description} />
+    <meta property="og:locale" content="sv_SE" />
+    <!-- Schema Markup (JSON-LD) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Corporation",
+        "name": "Newgent Digital",
+        "alternateName": "NWG Digital",
+        "url": "https://newgent.digital",
+        "logo": "https://newgent.digital/logomark.png",
+        "sameAs": [
+          "https://facebook.com/people/Newgent/100088496064242",
+          "https://instagram.com/heynewgent",
+          "https://youtube.com/@newgentdigital",
+          "https://linkedin.com/company/heynewgent/",
+          "https://newgent.digital"
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <slot />
+    <Footer />
+  </body>
+</html>

@@ -1,0 +1,40 @@
+---
+import { Icon } from "astro-icon";
+
+interface Props {
+  style: "solid" | "outline" | "outline-invert";
+  link: string;
+  target: string;
+  showIcon: "true" | "false";
+  icon: string;
+  text: string;
+}
+
+const { style, link, target, showIcon, icon, text } = Astro.props;
+---
+
+<a
+  href={link}
+  target={target}
+  aria-label={text}
+  data-umami-event=`Button (${Astro.url.pathname}): ${text} (${link})`
+>
+  <div
+    class:list={[
+      style === "solid" && "bg-nwg-sky text-slate-50",
+      style === "outline" && "border-nwg-sky border-2 text-slate-50",
+      style === "outline-invert" && "border-nwg-sky border-2 text-slate-900",
+      "flex h-10 items-center justify-center gap-2 rounded-md px-4 transition duration-150 hover:opacity-50",
+    ]}
+  >
+    <Icon
+      name={icon}
+      width="18"
+      class:list={[
+        showIcon === "false" && "hidden",
+        showIcon === "true" && "inline-block",
+      ]}
+    />
+    <span class="font-bold">{text}</span>
+  </div>
+</a>

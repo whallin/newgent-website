@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://newgent.digital/sitemap-index.xml

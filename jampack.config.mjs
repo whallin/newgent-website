@@ -7,7 +7,4 @@ export default {
   css: {
     inline_critical_css: true,
   },
-  misc: {
-    prefetch_links: "in-viewport",
-  },
 };
