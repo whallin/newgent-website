@@ -1,7 +1,11 @@
 ---
 import SiteHead from "../components/siteHead.astro";
-import Footer from "../components/footer.astro";
 import { getLanguageFromUrl } from "../i18n/utils";
+import { Picture } from "astro:assets";
+import { Icon } from "astro-icon";
+import LanguageSelector from "../components/footerLanguageSelector.astro";
+
+import iconWhite from "../img/icon-white.svg";
 
 const language = getLanguageFromUrl(Astro.url);
 const { title, description } = Astro.props;
@@ -41,6 +45,63 @@ const { title, description } = Astro.props;
   </head>
   <body>
     <slot />
-    <Footer />
+
+    <footer class="absolute bottom-0 w-full py-8">
+      <div
+        class="flex flex-col items-center justify-center gap-6 md:flex-row md:gap-16"
+      >
+        <div class="flex items-center gap-4">
+          <Picture
+            src={iconWhite}
+            width="32"
+            alt=""
+            class="select-none opacity-75"
+          />
+          <span class="text-slate-50 opacity-75"
+            >NWG Digital AB (559386-0066)<br />
+             All rights reserved.</span
+          >
+        </div>
+        <LanguageSelector />
+        <div class="flex select-none items-center gap-4 text-slate-50">
+          <a
+            href="https://instagram.com/heynewgent/"
+            target="_blank"
+            aria-label="Newgent via Instagram"
+            data-umami-event=`Footer (${Astro.url.pathname}): Instagram`
+          >
+            <Icon
+              name="mdi:instagram"
+              class="transition duration-150 hover:opacity-70"
+              width="28"
+            />
+          </a>
+          <a
+            href="https://linkedin.com/company/heynewgent"
+            target="_blank"
+            aria-label="Newgent via LinkedIn"
+            data-umami-event=`Footer (${Astro.url.pathname}): LinkedIn`
+          >
+            <Icon
+              name="mdi:linkedin"
+              class="transition duration-150 hover:opacity-70"
+              width="28"
+            />
+          </a>
+          <a
+            href="https://youtube.com/@newgentdigital"
+            target="_blank"
+            aria-label="Newgent via YouTube"
+            data-umami-event=`Footer (${Astro.url.pathname}): YouTube`
+          >
+            <Icon
+              name="mdi:youtube"
+              class="transition duration-150 hover:opacity-70"
+              width="28"
+            />
+          </a>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

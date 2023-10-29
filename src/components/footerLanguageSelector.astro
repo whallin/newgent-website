@@ -11,7 +11,7 @@ const translatePath = useTranslatedPath(lang);
     Object.entries(languages).map(([lang, label]) => (
       <a
         href={translatePath("/", lang)}
-        class="flex h-8 w-8 select-none items-center justify-center rounded-full bg-slate-50 font-bold text-nwg-sky transition duration-150 hover:opacity-50"
+        class="flex h-8 w-8 select-none items-center justify-center rounded-full bg-nwg-sky font-bold text-slate-50 transition duration-150 hover:opacity-50"
       >
         {label}
       </a>

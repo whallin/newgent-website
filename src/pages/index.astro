@@ -3,6 +3,8 @@ import Default from "../layouts/default.astro";
 import { getLanguageFromUrl, useTranslations } from "../i18n/utils";
 import { Picture } from "astro:assets";
 import Button from "../components/button.astro";
+import { Icon } from "astro-icon";
+import LanguageSelector from "../components/footerLanguageSelector.astro";
 
 import landingBg from "../img/landing-bg.png";
 import iconWhite from "../img/icon-white.svg";
@@ -12,8 +14,12 @@ const t = useTranslations(languages);
 ---
 
 <Default title={t("home")}>
-  <Picture src={landingBg} alt="" class="absolute h-screen brightness-50" />
-  <div class="align relative flex h-screen w-full items-center justify-center">
+  <Picture
+    src={landingBg}
+    alt=""
+    class="absolute h-screen w-screen brightness-50"
+  />
+  <div class="relative flex h-screen w-full items-center justify-center">
     <div class="flex flex-col gap-12 px-8 md:flex-row md:p-0">
       <Picture
         src={iconWhite}
