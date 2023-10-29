@@ -3,6 +3,7 @@ import Default from "../layouts/default.astro";
 import { t } from "astro-i18n";
 import { Picture, getImage } from "astro:assets";
 import Button from "../components/button.astro";
+import FooterLanguageSelector from "../components/footerLanguageSelector.astro";
 
 import iconWhite from "../img/icon-white.svg";
 import landingBg from "../img/landing-bg.png";
@@ -24,6 +25,7 @@ const optimizedLandingBg = await getImage({ src: landingBg });
         class="select-none"
       />
       <div class="flex max-w-lg flex-col gap-6">
+        <FooterLanguageSelector />
         <h1 class="text-4xl text-slate-50">
           {t("landing.heading")}
           <span class="font-bold text-nwg-sky drop-shadow-nwgskyGlow"
