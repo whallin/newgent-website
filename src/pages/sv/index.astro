@@ -1,19 +1,22 @@
 ---
 import Default from "../../layouts/default.astro";
 import { getLanguageFromUrl, useTranslations } from "../../i18n/utils";
-import { Picture } from "astro:assets";
+import { Picture, getImage } from "astro:assets";
 import Button from "../../components/button.astro";
 
-import landingBg from "../../img/landing-bg.png";
 import iconWhite from "../../img/icon-white.svg";
+import landingBg from "../../img/landing-bg.png";
 
+const optimizedLandingBg = await getImage({ src: landingBg });
 const languages = getLanguageFromUrl(Astro.url);
 const t = useTranslations(languages);
 ---
 
 <Default title={t("home")}>
-  <Picture src={landingBg} alt="" class="absolute h-screen brightness-50" />
-  <div class="align relative flex h-screen w-full items-center justify-center">
+  <div
+    class="relative flex h-screen w-full items-center justify-center bg-cover"
+    style={`background-image: url(${optimizedLandingBg.src});`}
+  >
     <div class="flex flex-col gap-12 px-8 md:flex-row md:p-0">
       <Picture
         src={iconWhite}
@@ -39,7 +42,7 @@ const t = useTranslations(languages);
           <a
             href="https://hallin.media"
             target="_blank"
-            class="font-bold text-[#E90000] underline decoration-2 underline-offset-2 transition duration-150 hover:opacity-70"
+            class="font-bold text-[#c24e4e] underline decoration-2 underline-offset-2 transition duration-150 hover:opacity-70"
             data-umami-event=`Link (${Astro.url.pathname}): HallinMedia (https://hallin.media)`
             >HallinMedia</a
           >.
