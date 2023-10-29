@@ -7,7 +7,7 @@ type SecondaryLocale = "sv"
 type Locale = PrimaryLocale | SecondaryLocale
 type RouteParameters = {"/":undefined;}
 type Route = keyof RouteParameters
-type TranslationVariables = {"home":object|undefined;"learnMore":object|undefined;"emailUs":object|undefined;"clientPortal":object|undefined;}
+type TranslationVariables = {"landing.heading":object|undefined;"landing.paragraph.1":object|undefined;"landing.paragraph.2":object|undefined;"landing.visit":object|undefined;"landing.areYouClient":object|undefined;"home":object|undefined;"learnMore":object|undefined;"emailUs":object|undefined;"clientPortal":object|undefined;"lookingForCreative":object|undefined;}
 type Translation = keyof TranslationVariables
 type Environment = "none"|"node"|"browser"
 declare module "astro-i18n" {

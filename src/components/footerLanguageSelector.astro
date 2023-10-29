@@ -1,12 +1,6 @@
 ---
 import { astroI18n, l } from "astro-i18n";
 
-interface Props {
-  labels: {
-    [locale: string]: string;
-  };
-}
-
 const { labels = {} } = Astro.props;
 
 const params: Record<string, string> = {};

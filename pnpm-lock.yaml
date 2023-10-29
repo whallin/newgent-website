@@ -29,6 +29,9 @@ dependencies:
   astro-icon:
     specifier: ^0.8.1
     version: 0.8.1
+  esbuild:
+    specifier: ^0.19.5
+    version: 0.19.5
   sharp:
     specifier: ^0.32.6
     version: 0.32.6
