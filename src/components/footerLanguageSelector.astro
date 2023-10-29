@@ -1,20 +1,38 @@
 ---
-import { languages } from "../i18n/strings";
-import { getLanguageFromUrl, useTranslatedPath } from "../i18n/utils";
+import { astroI18n, l } from "astro-i18n";
 
-const lang = getLanguageFromUrl(Astro.url);
-const translatePath = useTranslatedPath(lang);
+interface Props {
+  labels: {
+    [locale: string]: string;
+  };
+}
+
+const { labels = {} } = Astro.props;
+
+const params: Record<string, string> = {};
+for (const [key, value] of Object.entries(Astro.params)) {
+  if (value === undefined) continue;
+  params[key] = String(value);
+}
+
+let links = astroI18n.locales.map((locale) => ({
+  locale,
+  href: l(Astro.url.pathname, params, {
+    targetLocale: locale,
+  }),
+  label: labels[locale] || locale.toUpperCase(),
+}));
 ---
 
-<div class="flex gap-6">
+<nav class="flex gap-6">
   {
-    Object.entries(languages).map(([lang, label]) => (
+    links.map(({ href, label }) => (
       <a
-        href={translatePath("/", lang)}
+        href={href}
         class="flex h-8 w-8 select-none items-center justify-center rounded-full bg-nwg-sky/75 font-bold text-slate-50 transition duration-150 hover:opacity-50"
       >
         {label}
       </a>
     ))
   }
-</div>
+</nav>

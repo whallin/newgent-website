@@ -1,0 +1,20 @@
+---
+import { languages } from "../i18n/strings";
+import { getLanguageFromUrl, useTranslatedPath } from "../i18n/utils";
+
+const lang = getLanguageFromUrl(Astro.url);
+const translatePath = useTranslatedPath(lang);
+---
+
+<div class="flex gap-6">
+  {
+    Object.entries(languages).map(([lang, label]) => (
+      <a
+        href={translatePath("/", lang)}
+        class="flex h-8 w-8 select-none items-center justify-center rounded-full bg-nwg-sky/75 font-bold text-slate-50 transition duration-150 hover:opacity-50"
+      >
+        {label}
+      </a>
+    ))
+  }
+</div>

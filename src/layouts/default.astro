@@ -1,13 +1,12 @@
 ---
 import SiteHead from "../components/siteHead.astro";
-import { getLanguageFromUrl } from "../i18n/utils";
+import { astroI18n } from "astro-i18n";
 import Footer from "../components/footer.astro";
 
-const language = getLanguageFromUrl(Astro.url);
 const { title, description } = Astro.props;
 ---
 
-<html lang={language}>
+<html lang={astroI18n.locale}>
   <head>
     <SiteHead />
     <!-- Basic SEO -->
