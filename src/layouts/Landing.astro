@@ -1,0 +1,34 @@
+---
+import SiteHead from '../components/SiteHead.astro'
+const { title, description } = Astro.props
+---
+
+<html lang="en">
+	<head>
+		<SiteHead />
+		<!-- Basic SEO -->
+		<title>{title} | Newgent</title>
+		<meta name="description" content={description} />
+		<meta itemprop="name" content=`${title} | Newgent` />
+		<meta itemprop="description" content={description} />
+		<meta property="og:title" content=`${title} | Newgent` />
+		<meta property="og:description" content={description} />
+		<meta property="twitter:title" content=`${title} | Newgent` />
+		<meta property="twitter:description" content={description} />
+		<!-- Schema Markup (JSON-LD) -->
+		<script is:inline type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@type": "Corporation",
+				"name": "Newgent Digital",
+				"alternateName": "NWG Digital AB",
+				"url": "https://newgent.digital",
+				"logo": "https://newgent.digital/logomark.png",
+				"sameAs": ["https://linkedin.com/company/heynewgent/", "https://newgent.digital"]
+			}
+		</script>
+	</head>
+	<body class="text-wrap selection:bg-blue-400">
+		<slot />
+	</body>
+</html>
