@@ -23,6 +23,9 @@ importers:
       astro:
         specifier: ^4.12.2
         version: 4.12.2(@types/node@20.14.12)(lightningcss@1.25.1)(terser@5.31.3)(typescript@5.5.4)
+      gsap:
+        specifier: ^3.12.5
+        version: 3.12.5
       sharp:
         specifier: ^0.33.4
         version: 0.33.4
@@ -1153,6 +1156,9 @@ packages:
   gray-matter@4.0.3:
     resolution: {integrity: sha512-5v6yZd4JK3eMI3FqqCouswVqwugaA9r4dNZB1wwcmrD02QkV5H0y7XBQW8QwQqEaZY1pM9aqORSORhJRdNK44Q==}
     engines: {node: '>=6.0'}
+
+  gsap@3.12.5:
+    resolution: {integrity: sha512-srBfnk4n+Oe/ZnMIOXt3gT605BX9x5+rh/prT2F1SsNJsU1XuMiP0E2aptW481OnonOGACZWBqseH5Z7csHxhQ==}
 
   has-flag@3.0.0:
     resolution: {integrity: sha512-sKJf1+ceQBr4SMkvQnBDNDtf4TXpVhVGateu0t918bl30FnbE2m4vNLX+VWe/dpjlb+HugGYzW7uQXH98HPEYw==}
@@ -3547,6 +3553,8 @@ snapshots:
       kind-of: 6.0.3
       section-matter: 1.0.0
       strip-bom-string: 1.0.0
+
+  gsap@3.12.5: {}
 
   has-flag@3.0.0: {}
 
