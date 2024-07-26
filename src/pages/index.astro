@@ -1,55 +1,33 @@
 ---
 import { Picture } from 'astro:assets'
-import { Icon } from 'astro-icon/components'
 import NewgentLogomark from '../assets/img/newgent-logomark.svg'
 import Landing from '../layouts/Landing.astro'
+import SocialLinks from '../components/socialLinks.astro'
 ---
 
 <Landing
 	title="Home"
 	description="Discover Newgent Digital, a leading Swedish holding and management company dedicated to fostering growth in the SaaS and creative sectors. We specialize in driving business success through innovative strategies and expert guidance."
 >
-	<main>
-		<div class="flex flex-col justify-center gap-8">
-			<Picture
-				src={NewgentLogomark}
-				formats={['svg']}
-				alt="Newgent Logomark"
-				width={128}
-				class="select-none"
-			/>
-			<div class="flex flex-col gap-4 text-slate-50">
-				<h1 class="text-xl font-semibold text-[#3083FF]">New generation management.</h1>
-				<p>
-					<span class="font-semibold">Newgent (Digital)</span> is a Swedish-based holding and management
-					company that excels in driving and building businesses within the SaaS and creative industries.
-				</p>
-				<p>
-					Newgent confidently embraces the new generation of digital transformation, crafting and
-					managing innovative solutions for the future.
-				</p>
-			</div>
-			<div
-				class="flex flex-col gap-2 text-slate-400 underline underline-offset-2 transition duration-150 sm:flex-row sm:gap-6"
-			>
-				<a
-					href="mailto:hey@newgent.digital"
-					aria-label="Email us"
-					class="flex items-center gap-2 hover:opacity-50"
-					data-umami-event=`${Astro.url.pathname}: Email us <a>`
-				>
-					<Icon name="tabler:mail-filled" class="text-[#3083FF]" />Email us</a
-				>
-				<a
-					href="https://www.linkedin.com/company/heynewgent/"
-					target="_blank"
-					aria-label="LinkedIn"
-					class="flex items-center gap-2 hover:opacity-50"
-					data-umami-event=`${Astro.url.pathname}: LinkedIn <a>`
-				>
-					<Icon name="tabler:brand-linkedin" class="text-[#3083FF]" />LinkedIn</a
-				>
-			</div>
+	<main class="flex flex-col justify-center gap-8">
+		<Picture
+			src={NewgentLogomark}
+			formats={['svg']}
+			alt="Newgent Logomark"
+			width={128}
+			class="select-none"
+		/>
+		<div class="flex flex-col gap-4 text-slate-50">
+			<h1 class="text-xl font-semibold text-[#3083FF]">New generation management.</h1>
+			<p>
+				<span class="font-semibold">Newgent (Digital)</span> is a Swedish-based holding and management
+				company that excels in driving and building businesses within the SaaS and creative industries.
+			</p>
+			<p>
+				Newgent confidently embraces the new generation of digital transformation, crafting and
+				managing innovative solutions for the future.
+			</p>
 		</div>
+		<SocialLinks />
 	</main>
 </Landing>
