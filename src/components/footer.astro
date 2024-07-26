@@ -5,24 +5,27 @@ import NewgentIcon from '../assets/img/newgent-icon.svg'
 var currentYear = new Date().getFullYear()
 ---
 
-<footer
-	class="flex flex-col items-center justify-between gap-4 text-sm text-slate-500 transition duration-150 sm:flex-row"
->
-	<div class="flex items-center gap-4">
-		<Picture
-			src={NewgentIcon}
-			formats={['svg']}
-			alt="Newgent Icon"
-			width={32}
-			class="select-none opacity-50 hover:opacity-100"
-		/>
-		<div>
-			<span class="font-semibold">NWG Digital AB</span>
-			<p>Org nr. 559386-0066</p>
+<div>
+	<hr class="my-8 border-t-[0.5px] border-solid border-slate-600" />
+	<footer
+		class="flex flex-col items-center justify-between gap-4 pb-2 text-sm text-slate-500 transition duration-150 sm:flex-row"
+	>
+		<div class="flex items-center gap-4">
+			<Picture
+				src={NewgentIcon}
+				formats={['svg']}
+				alt="Newgent Icon"
+				width={32}
+				class="select-none opacity-50 hover:opacity-100"
+			/>
+			<div>
+				<span class="font-semibold">NWG Digital AB</span>
+				<p>Org nr. 559386-0066</p>
+			</div>
 		</div>
-	</div>
-	<div class="flex flex-col items-center sm:items-end">
-		<p>© {currentYear} NWG Digital AB.</p>
-		<i>All rights reserved.</i>
-	</div>
-</footer>
+		<div class="flex flex-col items-center sm:items-end">
+			<p>© {currentYear} NWG Digital AB.</p>
+			<i>All rights reserved.</i>
+		</div>
+	</footer>
+</div>

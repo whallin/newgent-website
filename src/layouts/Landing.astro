@@ -1,5 +1,6 @@
 ---
 import SiteHead from '../components/siteHead.astro'
+import Footer from '../components/footer.astro'
 const { title, description } = Astro.props
 ---
 
@@ -28,7 +29,10 @@ const { title, description } = Astro.props
 			}
 		</script>
 	</head>
-	<body class="text-wrap bg-gradient-to-t from-slate-900 to-slate-800 selection:bg-blue-400">
+	<body
+		class="m-auto flex min-h-screen max-w-[600px] flex-col justify-between text-wrap bg-gradient-to-t from-slate-900 to-slate-800 p-12 selection:bg-blue-400"
+	>
 		<slot />
+		<Footer />
 	</body>
 </html>

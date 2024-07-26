@@ -3,15 +3,14 @@ import { Picture } from 'astro:assets'
 import { Icon } from 'astro-icon/components'
 import NewgentLogomark from '../assets/img/newgent-logomark.svg'
 import Landing from '../layouts/Landing.astro'
-import Footer from '../components/footer.astro'
 ---
 
 <Landing
 	title="Home"
 	description="Discover Newgent Digital, a leading Swedish holding and management company dedicated to fostering growth in the SaaS and creative sectors. We specialize in driving business success through innovative strategies and expert guidance."
 >
-	<main class="h-dvh">
-		<div class="m-auto flex max-w-[600px] flex-col justify-center gap-8 p-12">
+	<main>
+		<div class="flex flex-col justify-center gap-8">
 			<Picture
 				src={NewgentLogomark}
 				formats={['svg']}
@@ -51,8 +50,6 @@ import Footer from '../components/footer.astro'
 					<Icon name="tabler:brand-linkedin" class="text-[#3083FF]" />LinkedIn</a
 				>
 			</div>
-			<hr class="my-4 border-t-[0.5px] border-solid border-slate-600" />
-			<Footer />
 		</div>
 	</main>
 </Landing>
