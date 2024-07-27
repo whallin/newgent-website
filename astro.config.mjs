@@ -13,11 +13,7 @@ export default defineConfig({
 		playformCompress(),
 		sitemap({
 			i18n: {
-				defaultLocale: 'en',
-				locales: {
-					en: 'en-US',
-					sv: 'sv-SE'
-				}
+				defaultLocale: 'en'
 			}
 		}),
 		partytown({
