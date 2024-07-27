@@ -11,7 +11,15 @@ export default defineConfig({
 	integrations: [
 		tailwind(),
 		playformCompress(),
-		sitemap(),
+		sitemap({
+			i18n: {
+				defaultLocale: 'en',
+				locales: {
+					en: 'en-US',
+					sv: 'sv-SE'
+				}
+			}
+		}),
 		partytown({
 			config: {
 				forward: ['dataLayer.push']
