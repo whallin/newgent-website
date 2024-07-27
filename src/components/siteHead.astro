@@ -1,11 +1,39 @@
 ---
+interface Props {
+	title: string
+	description: string
+}
 
+const { title, description } = Astro.props
 ---
 
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width" />
 <link rel="canonical" href={Astro.url} />
 <link rel="sitemap" href="/sitemap-index.xml" />
+
+<!-- Basic SEO -->
+<title>{title} | Newgent</title>
+<meta name="description" content={description} />
+<meta itemprop="name" content=`${title} | Newgent` />
+<meta itemprop="description" content={description} />
+<meta property="og:title" content=`${title} | Newgent` />
+<meta property="og:description" content={description} />
+<meta property="twitter:title" content=`${title} | Newgent` />
+<meta property="twitter:description" content={description} />
+
+<!-- Schema Markup (JSON-LD) -->
+<script is:inline type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "Corporation",
+		"name": "Newgent Digital",
+		"alternateName": "NWG Digital AB",
+		"url": "https://newgent.digital",
+		"logo": "https://newgent.digital/logomark.png",
+		"sameAs": ["https://linkedin.com/company/heynewgent/", "https://newgent.digital"]
+	}
+</script>
 
 <!-- Open Graph -->
 <meta property="og:type" content="website" />
@@ -67,8 +95,22 @@
 
 <!-- Analytics -->
 <script
-	is:inline
-	defer
+	type="text/partytown"
 	src=`${import.meta.env.PUBLIC_UMAMI_URL}`
 	data-website-id=`${import.meta.env.PUBLIC_UMAMI_ID}`
 	data-domains="newgent.digital"></script>
+
+<script type="text/partytown">
+	;(function (c, l, a, r, i, t, y) {
+		c[a] =
+			c[a] ||
+			function () {
+				;(c[a].q = c[a].q || []).push(arguments)
+			}
+		t = l.createElement(r)
+		t.async = 1
+		t.src = 'https://www.clarity.ms/tag/' + i
+		y = l.getElementsByTagName(r)[0]
+		y.parentNode.insertBefore(t, y)
+	})(window, document, 'clarity', 'script', `${import.meta.env.PUBLIC_CLARITY_ID}`)
+</script>

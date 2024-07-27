@@ -1,33 +1,19 @@
 ---
 import SiteHead from '../components/siteHead.astro'
 import Footer from '../components/footer.astro'
+
+interface Props {
+	title: string
+	description: string
+}
+
 const { title, description } = Astro.props
 ---
 
+<!doctype html>
 <html lang="en">
 	<head>
-		<SiteHead />
-		<!-- Basic SEO -->
-		<title>{title} | Newgent</title>
-		<meta name="description" content={description} />
-		<meta itemprop="name" content=`${title} | Newgent` />
-		<meta itemprop="description" content={description} />
-		<meta property="og:title" content=`${title} | Newgent` />
-		<meta property="og:description" content={description} />
-		<meta property="twitter:title" content=`${title} | Newgent` />
-		<meta property="twitter:description" content={description} />
-		<!-- Schema Markup (JSON-LD) -->
-		<script is:inline type="application/ld+json">
-			{
-				"@context": "https://schema.org",
-				"@type": "Corporation",
-				"name": "Newgent Digital",
-				"alternateName": "NWG Digital AB",
-				"url": "https://newgent.digital",
-				"logo": "https://newgent.digital/logomark.png",
-				"sameAs": ["https://linkedin.com/company/heynewgent/", "https://newgent.digital"]
-			}
-		</script>
+		<SiteHead title={title} description={description} />
 	</head>
 	<body
 		class="m-auto flex min-h-screen max-w-[600px] flex-col justify-between bg-gradient-to-t from-slate-900 to-slate-800 p-12 selection:bg-blue-400"
