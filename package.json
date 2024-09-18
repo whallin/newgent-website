@@ -12,22 +12,22 @@
 		"cf-typegen": "wrangler types"
 	},
 	"dependencies": {
-		"@astrojs/check": "^0.8.2",
-		"@astrojs/partytown": "^2.1.1",
+		"@astrojs/check": "^0.8.3",
+		"@astrojs/partytown": "^2.1.2",
 		"@astrojs/sitemap": "^3.1.6",
-		"@astrojs/tailwind": "^5.1.0",
-		"@playform/compress": "^0.1.0",
-		"astro": "^4.12.2",
+		"@astrojs/tailwind": "^5.1.1",
+		"@playform/compress": "^0.1.1",
+		"astro": "^4.15.7",
 		"gsap": "^3.12.5",
-		"sharp": "^0.33.4",
-		"tailwindcss": "^3.4.7",
-		"typescript": "^5.5.4"
+		"sharp": "^0.33.5",
+		"tailwindcss": "^3.4.12",
+		"typescript": "^5.6.2"
 	},
 	"devDependencies": {
-		"@cloudflare/workers-types": "^4.20240725.0",
+		"@cloudflare/workers-types": "^4.20240909.0",
 		"prettier": "^3.3.3",
 		"prettier-plugin-astro": "^0.14.1",
-		"prettier-plugin-tailwindcss": "^0.6.5",
-		"wrangler": "^3.67.1"
+		"prettier-plugin-tailwindcss": "^0.6.6",
+		"wrangler": "^3.78.4"
 	}
 }
