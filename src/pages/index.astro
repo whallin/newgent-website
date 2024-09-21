@@ -2,6 +2,7 @@
 import { Picture } from 'astro:assets'
 import NewgentLogomark from '../assets/img/newgent-logomark.svg'
 import Landing from '../layouts/Landing.astro'
+import Subsidaries from '../components/subsidaries.astro'
 import SocialLinks from '../components/socialLinks.astro'
 ---
 
@@ -31,13 +32,23 @@ import SocialLinks from '../components/socialLinks.astro'
 				managing innovative solutions for the future.
 			</p>
 		</div>
+		<Subsidaries />
 		<SocialLinks />
 	</main>
 	<script>
 		import gsap from 'gsap'
 
 		gsap.from(
-			['#newgent-logomark', '#landing-heading', '#landing-p1', '#landing-p2', '#landing-social'],
+			[
+				'#newgent-logomark',
+				'#landing-heading',
+				'#landing-p1',
+				'#landing-p2',
+				'#landing-subsidaries',
+				'#card-1',
+				'#card-2',
+				'#landing-social'
+			],
 			{
 				y: 25,
 				opacity: 0,
