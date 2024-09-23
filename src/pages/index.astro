@@ -2,8 +2,9 @@
 import { Picture } from 'astro:assets'
 import NewgentLogomark from '../assets/img/newgent-logomark.svg'
 import Landing from '../layouts/Landing.astro'
-import Subsidaries from '../components/subsidaries.astro'
-import SocialLinks from '../components/socialLinks.astro'
+import Subsidaries from '../components/Subsidaries.astro'
+import SocialLinks from '../components/SocialLinks.astro'
+import Faq from '../components/Faq.astro'
 ---
 
 <Landing
@@ -33,8 +34,10 @@ import SocialLinks from '../components/socialLinks.astro'
 			</p>
 		</div>
 		<Subsidaries />
+		<Faq />
 		<SocialLinks />
 	</main>
+
 	<script>
 		import gsap from 'gsap'
 
@@ -45,8 +48,9 @@ import SocialLinks from '../components/socialLinks.astro'
 				'#landing-p1',
 				'#landing-p2',
 				'#landing-subsidaries',
-				'#card-1',
-				'#card-2',
+				'#subsidaries-card-1',
+				'#subsidaries-card-2',
+				'#landing-faq',
 				'#landing-social'
 			],
 			{
