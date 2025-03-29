@@ -1,0 +1,32 @@
+---
+import NewgentCo from "../../components/sections/NewgentCo.astro";
+import WorkWithNewgent from "../../components/sections/WorkWithNewgent.astro";
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout
+  title="Creative consultancy for startups"
+  description="Newgent is a creative management consultancy that helps you build a better business by understanding your needs and collaborating with you to achieve your goals."
+  keywords={["creative management consultancy", "startups", "business", "consultancy", "management"]}
+>
+  <div class="mx-auto max-w-2xl space-y-12">
+    <section class="space-y-4">
+      <h1 class="text-3xl font-semibold text-sky-600">
+        <span class="text-slate-400"># </span>A new generation of management.
+      </h1>
+      <p class="mt-2 text-sm text-slate-500">
+        <span class="text-sky-600"><b>Newgent</b> (Digital)</span> is a creative management consultancy that helps you build
+        a better business. We are a team of experienced professionals who are passionate about helping you achieve your goals.
+        Whether you are an established company or a startup, we can assist you in bringing your ideas and objectives to life.
+      </p>
+      <p class="mt-2 text-sm text-slate-500">
+        What we do is not just about technology; it's about people. We help you build a better business by understanding
+        your needs and collaborating with you to achieve your goals.
+      </p>
+    </section>
+    <NewgentCo />
+    <!--
+      <WorkWithNewgent />
+     -->
+  </div>
+</Layout>

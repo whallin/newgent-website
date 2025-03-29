@@ -1,65 +1,32 @@
 ---
-import { Picture } from 'astro:assets'
-import NewgentLogomark from '../assets/img/newgent-logomark.svg'
-import Landing from '../layouts/Landing.astro'
-import Subsidaries from '../components/subsidaries.astro'
-import SocialLinks from '../components/socialLinks.astro'
-import Faq from '../components/Faq.astro'
+import NewgentCo from "../components/sections/NewgentCo.astro";
+import WorkWithNewgent from "../components/sections/WorkWithNewgent.astro";
+import Layout from "../layouts/Layout.astro";
 ---
 
-<Landing
-	title="Home"
-	description="Discover Newgent Digital, a leading Swedish holding and management company dedicated to fostering growth in the SaaS and creative sectors. We specialize in driving business success through innovative strategies and expert guidance."
+<Layout
+  title="Kreativ rådgivning för nystartade företag"
+  description="Newgent är ett konsultföretag inom kreativ management som hjälper dig att bygga ett bättre företag genom att förstå dina behov och samarbeta med dig för att uppnå dina mål."
+  keywords={["kreativ management", "nystartade företag", "företag", "konsult", "management"]}
 >
-	<main class="flex flex-col justify-center gap-8">
-		<Picture
-			src={NewgentLogomark}
-			formats={['svg']}
-			alt="Newgent Logomark"
-			width={128}
-			class="select-none"
-			id="newgent-logomark"
-		/>
-		<div class="flex flex-col gap-4 text-slate-50">
-			<h1 class="text-xl font-semibold text-[#3083FF]" id="landing-heading">
-				New generation management.
-			</h1>
-			<p id="landing-p1">
-				<span class="font-semibold">Newgent (Digital)</span> is a Swedish-based holding and management
-				company that excels in driving and building businesses within the SaaS and creative industries.
-			</p>
-			<p id="landing-p2">
-				Newgent confidently embraces the new generation of digital transformation, crafting and
-				managing innovative solutions for the future.
-			</p>
-		</div>
-		<Subsidaries />
-		<Faq />
-		<SocialLinks />
-	</main>
-
-	<script>
-		import gsap from 'gsap'
-
-		gsap.from(
-			[
-				'#newgent-logomark',
-				'#landing-heading',
-				'#landing-p1',
-				'#landing-p2',
-				'#landing-subsidaries',
-				'#subsidaries-card-1',
-				'#subsidaries-card-2',
-				'#landing-faq',
-				'#landing-social'
-			],
-			{
-				y: 25,
-				opacity: 0,
-				duration: 1,
-				ease: 'power2.out',
-				stagger: 0.2
-			}
-		)
-	</script>
-</Landing>
+  <div class="mx-auto max-w-2xl space-y-12">
+    <section class="space-y-4">
+      <h1 class="text-3xl font-semibold text-sky-600">
+        <span class="text-slate-400"># </span>A new generation of management.
+      </h1>
+      <p class="mt-2 text-sm text-slate-500">
+        <span class="text-sky-600"><b>Newgent</b> (Digital)</span> är ett kreativt managementkonsultföretag som hjälper dig
+        att bygga ett bättre företag. Vi är ett team av erfarna proffs som brinner för att hjälpa dig att nå dina mål. Oavsett
+        om du är ett etablerat företag eller en nystartad verksamhet kan vi hjälpa dig att förverkliga dina idéer och mål.
+      </p>
+      <p class="mt-2 text-sm text-slate-500">
+        Det vi gör handlar inte bara om teknik, det handlar om människor. Vi hjälper dig att bygga en bättre verksamhet
+        genom att förstå dina behov och samarbeta med dig för att uppnå dina mål.
+      </p>
+    </section>
+    <NewgentCo />
+    <!--
+      <WorkWithNewgent />
+     -->
+  </div>
+</Layout>

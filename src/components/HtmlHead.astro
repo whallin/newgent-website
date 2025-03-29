@@ -1,0 +1,241 @@
+---
+import "@fontsource-variable/anek-latin/wdth.css";
+import "@fontsource-variable/geist-mono";
+import { getAbsoluteLocaleUrl } from "astro:i18n";
+
+interface Props {
+  title?: string;
+  description?: string;
+  article?: boolean;
+  keywords?: string[];
+}
+
+const translations = {
+  en: {
+    title: "TITLE",
+    description: "DESCRIPTION",
+  },
+  sv: {
+    title: "TITEL",
+    description: "BESKRIVNING",
+  },
+};
+
+const locale = Astro.currentLocale === "en" || Astro.currentLocale === "sv" ? Astro.currentLocale : "en";
+const {
+  title = translations[locale].title,
+  description = translations[locale].description,
+  article = false,
+  keywords = [],
+} = Astro.props;
+---
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#3083FF" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>{title} - Newgent</title>
+
+<!-- Meta -->
+<meta name="description" content={description} />
+<meta name="author" content="Newgent Digital" />
+{keywords.length > 0 && <meta name="keywords" content={keywords.join(", ")} />}
+<link rel="sitemap" href="/sitemap-index.xml" />
+<link rel="canonical" href={Astro.url} />
+{
+  ["en", "sv"].map((lang) => (
+    <link
+      rel="alternate"
+      hreflang={lang}
+      href={getAbsoluteLocaleUrl(lang, Astro.url.pathname.replace(`/${Astro.currentLocale}`, ""))}
+    />
+  ))
+}
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+<link rel="shortcut icon" href="/favicon/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="Newgent" />
+<link rel="manifest" href="/favicon/site.webmanifest" />
+
+<!-- Open Graph -->
+<meta property="og:type" content={article ? "article" : "website"} />
+<meta property="og:site_name" content="Newgent Digital" />
+<meta property="og:url" content={Astro.url} />
+<meta property="og:title" content={`${title} - Newgent`} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content="https://newgent.digital/meta.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content={description} />
+<meta property="og:locale" content={Astro.currentLocale} />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content=`${title} - Newgent` />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content="https://newgent.digital/meta.png" />
+<meta name="twitter:image:alt" content={description} />
+
+<!-- Schema Markup - Organization -->
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Corporation",
+    "name": "Newgent Digital",
+    "alternateName": "Newgent",
+    "url": "https://newgent.digital/",
+    "logo": "https://newgent.digital/meta.png",
+    "contactPoint": [
+      {
+        "@type": "ContactPoint",
+        "telephone": "+46706159279",
+        "contactType": "customer service",
+        "areaServed": ["SE", "NO", "FI", "DK", "150"],
+        "availableLanguage": ["en", "Swedish"]
+      },
+      {
+        "@type": "ContactPoint",
+        "telephone": "+46706159279",
+        "contactType": "technical support",
+        "areaServed": ["SE", "NO", "FI", "DK", "150"],
+        "availableLanguage": ["en", "Swedish"]
+      },
+      {
+        "@type": "ContactPoint",
+        "telephone": "+46706159279",
+        "contactType": "billing support",
+        "areaServed": ["SE", "NO", "FI", "DK", "150"],
+        "availableLanguage": ["en", "Swedish"]
+      },
+      {
+        "@type": "ContactPoint",
+        "telephone": "+46706159279",
+        "contactType": "sales",
+        "areaServed": ["SE", "NO", "FI", "DK", "150"],
+        "availableLanguage": ["en", "Swedish"]
+      },
+      {
+        "@type": "ContactPoint",
+        "telephone": "+46706159279",
+        "contactType": "reservations",
+        "areaServed": ["SE", "NO", "FI", "DK", "150"],
+        "availableLanguage": ["en", "Swedish"]
+      },
+      {
+        "@type": "ContactPoint",
+        "telephone": "+46706159279",
+        "contactType": "credit card support",
+        "areaServed": ["SE", "NO", "FI", "DK", "150"],
+        "availableLanguage": ["en", "Swedish"]
+      }
+    ],
+    "sameAs": [
+      "https://www.youtube.com/@newgentdigital",
+      "https://www.linkedin.com/company/heynewgent",
+      "https://newgent.digital/"
+    ]
+  }
+</script>
+
+<!-- Schema Markup - Local Business -->
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Newgent Digital",
+    "image": "https://newgent.digital/meta.png",
+    "@id": "https://newgent.digital/",
+    "url": "https://newgent.digital/",
+    "telephone": "+46706159279",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Bleckslagargatan 16",
+      "addressLocality": "Kåge",
+      "postalCode": "934 31",
+      "addressCountry": "SE"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 64.8303689,
+      "longitude": 20.990464
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "09:00",
+        "closes": "17:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Saturday", "Sunday"],
+        "opens": "09:00",
+        "closes": "15:00"
+      }
+    ],
+    "sameAs": [
+      "https://www.youtube.com/@newgentdigital",
+      "https://www.linkedin.com/company/heynewgent",
+      "https://newgent.digital/"
+    ]
+  }
+</script>
+
+<!-- Umami -->
+<script
+  is:inline
+  type="text/partytown"
+  src="https://cloud.umami.is/script.js"
+  data-website-id="d9755b69-deac-4f81-b97f-0759fcfe3635"
+  data-domains="newgent.digital"></script>
+
+<!-- Microsoft Clarity -->
+<script is:inline type="text/partytown">
+  (function (c, l, a, r, i, t, y) {
+    c[a] =
+      c[a] ||
+      function () {
+        (c[a].q = c[a].q || []).push(arguments);
+      };
+    t = l.createElement(r);
+    t.async = 1;
+    t.src = "https://www.clarity.ms/tag/" + i;
+    y = l.getElementsByTagName(r)[0];
+    y.parentNode.insertBefore(t, y);
+  })(window, document, "clarity", "script", "i6dhj8l2u5");
+</script>
+
+<!-- Google Analytics -->
+<script is:inline type="text/partytown" src="https://www.googletagmanager.com/gtag/js?id=G-GCFMW75P46"></script>
+<script is:inline type="text/partytown">
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+
+  gtag("config", "G-GCFMW75P46");
+</script>
+
+<!-- HubSpot -->
+<script is:inline type="text/javascript" id="hs-script-loader" src="//js.hs-scripts.com/49502315.js" defer></script>
+
+<!-- Apollo -->
+<script is:inline type="text/partytown">
+  function initApollo() {
+    var n = Math.random().toString(36).substring(7),
+      o = document.createElement("script");
+    (o.src = "https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache=" + n),
+      (o.async = !0),
+      (o.defer = !0),
+      (o.onload = function () {
+        window.trackingFunctions.onLoad({ appId: "67d9aa9b55d2ee001dfbd0c4" });
+      }),
+      document.head.appendChild(o);
+  }
+  initApollo();
+</script>

@@ -1,0 +1,124 @@
+---
+import { Icon } from "astro-icon/components";
+
+const translations = {
+  en: {
+    description:
+      "Newgent holds a number of projects and subsidiaries that we've built over the years to help us grow as individuals and professionals, allowing us to learn and share our knowledge to help you build your business.",
+    hallinMedia: {
+      description:
+        "HallinMedia is a creative agency we built to offer better services to our clients — providing services such as photography, video production, graphic design, and more.",
+      cta: "Visit HallinMedia",
+    },
+    shift: {
+      description:
+        "Shift is a web-based system we created to help our clients manage recruitment more easily, without needing costly or complicated services.",
+      cta: "Visit Shift",
+    },
+    dodenUnderDoden: {
+      description:
+        'Döden under döden is a short documentary we produced to answer the question, "How does an undertaker cope with working with death?"',
+      cta: "Watch Döden under döden",
+    },
+    yourNextProject: {
+      title: "Your next project...",
+      description:
+        "Perhaps you're trying to build something significant but don't know where to start. We at Newgent are ready to assist you today and help you get started.",
+      cta: "Send us an email",
+    },
+  },
+  sv: {
+    description:
+      "Newgent har ett antal projekt och dotterbolag som vi har byggt upp under åren för att hjälpa oss att växa som individer och professionella, så att vi kan lära oss och dela med oss av vår kunskap för att hjälpa dig att bygga upp din verksamhet.",
+    hallinMedia: {
+      description:
+        "HallinMedia är en kreativ byrå som vi har byggt för att kunna erbjuda bättre tjänster till våra kunder — fotografering, videoproduktion, grafisk design och mer.",
+      cta: "Besök HallinMedia",
+    },
+    shift: {
+      description:
+        "Shift is a web-based system we created to help our clients manage recruitment more easily, without needing costly or complicated services.",
+      cta: "Visit Shift",
+    },
+    dodenUnderDoden: {
+      description:
+        'Döden under döden är en kort dokumentär vi producerade för att besvara frågan "Hur hanterar en begravningsentreprenör att arbeta med döden?"',
+      cta: "Se Döden under döden",
+    },
+    yourNextProject: {
+      title: "Ditt nästa projekt...",
+      description:
+        "Kanske försöker du bygga upp något stort men vet inte var du ska börja. Vi på Newgent är redo att hjälpa dig redan idag och hjälpa dig att komma igång.",
+      cta: "Skicka ett mejl",
+    },
+  },
+};
+
+const astroLocale = Astro.currentLocale === "en" || Astro.currentLocale === "sv" ? Astro.currentLocale : "en";
+---
+
+<section class="space-y-4">
+  <h2 class="text-2xl font-semibold text-sky-600">
+    <span class="text-slate-400">## </span>Newgent & Co
+  </h2>
+  <p class="text-sm text-slate-500">
+    {translations[astroLocale].description}
+  </p>
+  <div class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
+    <div class="relative space-y-2 overflow-hidden rounded-lg border border-red-300 bg-red-100/25 p-4">
+      <h3 class="flex flex-wrap items-center gap-2 text-lg font-semibold text-red-500">
+        <Icon name="carbon:color-palette" class="h-4 w-4" /> HallinMedia
+      </h3>
+      <p class="max-w-64 text-sm text-slate-500">
+        {translations[astroLocale].hallinMedia.description}
+      </p>
+      <a
+        href="https://hallin.media/"
+        class="flex w-fit items-center gap-1 text-sm text-red-500 underline decoration-dashed decoration-from-font underline-offset-4 transition-opacity hover:opacity-75 active:opacity-50"
+        >{translations[astroLocale].hallinMedia.cta} <Icon name="carbon:arrow-up-right" class="h-4 w-4" /></a
+      >
+    </div>
+    <!--
+      <div class="relative space-y-2 overflow-hidden rounded-lg border border-lime-300 bg-lime-100/25 p-4">
+      <h3 class="flex flex-wrap items-center gap-2 text-lg font-semibold text-lime-500">
+        <Icon name="carbon:license-third-party-draft" class="h-4 w-4" /> Shift
+      </h3>
+      <p class="max-w-64 text-sm text-slate-500">
+        {translations[astroLocale].shift.description}
+      </p>
+      <a
+        href="https://useshift.work/"
+      class="flex w-fit items-center gap-1 text-sm text-lime-500 underline decoration-dashed decoration-from-font underline-offset-4 transition-opacity hover:opacity-75 active:opacity-50"
+      >{translations[astroLocale].shift.cta} <Icon name="carbon:arrow-up-right" class="h-4 w-4" /></a
+      >
+    </div>
+    -->
+    <div class="relative space-y-2 overflow-hidden rounded-lg border border-blue-300 bg-blue-100/25 p-4">
+      <h3 class="flex flex-wrap items-center gap-2 text-lg font-semibold text-blue-500">
+        <Icon name="carbon:video-player" class="h-4 w-4" /> Döden under döden
+      </h3>
+      <p class="max-w-64 text-sm text-slate-500">
+        {translations[astroLocale].dodenUnderDoden.description}
+      </p>
+      <a
+        href="https://youtu.be/jKVu5DXnBXQ"
+        class="flex w-fit items-center gap-1 text-sm text-blue-500 underline decoration-dashed decoration-from-font underline-offset-4 transition-opacity hover:opacity-75 active:opacity-50"
+        >{translations[astroLocale].dodenUnderDoden.cta} <Icon name="carbon:arrow-up-right" class="h-4 w-4" /></a
+      >
+    </div>
+    <div class="relative space-y-2 overflow-hidden rounded-lg border border-sky-300 bg-sky-100/25 p-4 sm:col-span-2">
+      <h3 class="flex flex-wrap items-center gap-2 text-lg font-semibold text-sky-600">
+        <Icon name="carbon:location-heart" class="h-4 w-4" />
+        {translations[astroLocale].yourNextProject.title}
+      </h3>
+      <p class="max-w-96 text-sm text-slate-500">
+        {translations[astroLocale].yourNextProject.description}
+      </p>
+      <a
+        href="mailto:hey@newgent.digital"
+        class="flex w-fit items-center gap-1 text-sm text-sky-600 underline decoration-dashed decoration-from-font underline-offset-4 transition-opacity hover:opacity-75 active:opacity-50"
+        >{translations[astroLocale].yourNextProject.cta} <Icon name="carbon:arrow-up-right" class="h-4 w-4" /></a
+      >
+    </div>
+  </div>
+</section>

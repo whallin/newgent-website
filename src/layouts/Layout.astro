@@ -1,0 +1,33 @@
+---
+import Footer from "../components/Footer.astro";
+import HtmlHead from "../components/HtmlHead.astro";
+import Navbar from "../components/Navbar.astro";
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+  article?: boolean;
+  keywords?: string[];
+  schema?: Record<string, any>;
+}
+
+const { title, description, article, keywords, schema } = Astro.props;
+---
+
+<!doctype html>
+<html lang={Astro.currentLocale}>
+  <head>
+    <HtmlHead title={title} description={description} article={article} keywords={keywords} />
+    {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
+  </head>
+  <body class="bg-sky-50 selection:bg-sky-900 selection:text-sky-200 dark:bg-slate-900">
+    <div class="mx-auto max-w-2xl">
+      <Navbar />
+      <main class="mx-8 my-12 space-y-12">
+        <slot />
+      </main>
+      <Footer />
+    </div>
+  </body>
+</html>
