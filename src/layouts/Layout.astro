@@ -1,7 +1,7 @@
 ---
-import Footer from "../components/Footer.astro";
 import HtmlHead from "../components/HtmlHead.astro";
-import Navbar from "../components/Navbar.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+import SiteNavbar from "../components/SiteNavbar.astro";
 import "../styles/global.css";
 
 interface Props {
@@ -23,11 +23,11 @@ const { title, description, article, keywords, schema } = Astro.props;
   </head>
   <body class="bg-sky-50 selection:bg-sky-900 selection:text-sky-200 dark:bg-slate-900">
     <div class="mx-auto max-w-2xl">
-      <Navbar />
+      <SiteNavbar />
       <main class="mx-8 my-12 space-y-12">
         <slot />
       </main>
-      <Footer />
+      <SiteFooter />
     </div>
   </body>
 </html>
