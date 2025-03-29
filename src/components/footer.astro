@@ -1,29 +1,46 @@
 ---
-import { Picture } from 'astro:assets'
-import NewgentIcon from '../assets/img/newgent-icon.svg'
+import { Image } from "astro:assets";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import ImgIconDark from "../assets/icon-dark.svg";
+import ImgIconLight from "../assets/icon-light.svg";
 
-var currentYear = new Date().getFullYear()
+const translations = {
+  en: {
+    allRightsReserved: "All rights reserved.",
+  },
+  sv: {
+    allRightsReserved: "Alla rättigheter förbehållna.",
+  },
+};
+
+const astroLocale = Astro.currentLocale === "en" || Astro.currentLocale === "sv" ? Astro.currentLocale : "en";
 ---
 
-<footer>
-	<hr class="my-8 border-t-[0.5px] border-slate-600" />
-	<div class="flex flex-col items-center justify-between gap-4 text-sm text-slate-500 sm:flex-row">
-		<div class="flex items-center gap-4">
-			<Picture
-				src={NewgentIcon}
-				formats={['svg']}
-				alt="Newgent Icon"
-				width={32}
-				class="select-none opacity-50 transition duration-200 hover:opacity-100"
-			/>
-			<div>
-				<span class="font-semibold">NWG Digital AB</span>
-				<p>Org nr. 559386-0066</p>
-			</div>
-		</div>
-		<div class="flex flex-col items-center sm:items-end">
-			<p>© {currentYear} NWG Digital AB.</p>
-			<i>All rights reserved.</i>
-		</div>
-	</div>
+<footer class="m-8 flex max-w-2xl flex-wrap items-center justify-between gap-4 border-t border-slate-300 pt-6">
+  <div class="flex items-center justify-center gap-4">
+    <a href={getRelativeLocaleUrl(astroLocale, "/")}>
+      <Image
+        src={ImgIconDark}
+        alt="Newgent logo"
+        width={32}
+        height={32}
+        class="block h-8 w-auto opacity-75 transition-opacity select-none hover:opacity-100 dark:hidden"
+      />
+      <Image
+        src={ImgIconLight}
+        alt="Newgent logo"
+        width={32}
+        height={32}
+        class="hidden h-8 w-auto opacity-75 transition-opacity select-none hover:opacity-100 dark:block"
+      />
+    </a>
+    <div class="flex flex-col text-sm text-slate-500">
+      <p class="font-semibold">Newgent Digital</p>
+      <p>Org nr. 559386-0066</p>
+    </div>
+  </div>
+  <div class="flex flex-col text-right text-sm text-slate-500">
+    <p>&copy; {new Date().getFullYear()} NWG Digital AB.</p>
+    <p>{translations[astroLocale].allRightsReserved}</p>
+  </div>
 </footer>

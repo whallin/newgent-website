@@ -1,33 +1,54 @@
 {
-	"name": "newgent-website",
-	"type": "module",
-	"version": "0.0.1",
-	"scripts": {
-		"dev": "astro dev",
-		"start": "astro dev",
-		"build": "astro build",
-		"preview": "astro build && wrangler pages dev",
-		"astro": "astro",
-		"deploy": "astro build && wrangler pages deploy",
-		"cf-typegen": "wrangler types"
-	},
-	"dependencies": {
-		"@astrojs/check": "^0.8.3",
-		"@astrojs/partytown": "^2.1.2",
-		"@astrojs/sitemap": "^3.1.6",
-		"@astrojs/tailwind": "^5.1.1",
-		"@playform/compress": "^0.1.1",
-		"astro": "^4.15.8",
-		"gsap": "^3.12.5",
-		"sharp": "^0.33.5",
-		"tailwindcss": "^3.4.12",
-		"typescript": "^5.6.2"
-	},
-	"devDependencies": {
-		"@cloudflare/workers-types": "^4.20240919.0",
-		"prettier": "^3.3.3",
-		"prettier-plugin-astro": "^0.14.1",
-		"prettier-plugin-tailwindcss": "^0.6.6",
-		"wrangler": "^3.78.7"
-	}
+  "private": true,
+  "name": "@whallin/newgent-website",
+  "description": "The official Newgent (Digital) website",
+  "type": "module",
+  "version": "2.0.0",
+  "homepage": "https://github.com/whallin/newgent-website",
+  "bugs": {
+    "url": "https://github.com/whallin/newgent-website",
+    "email": "hey@newgent.digital"
+  },
+  "license": "GPL-3.0-or-later",
+  "author": {
+    "name": "Newgent Digital",
+    "url": "https://newgent.digital/",
+    "email": "hey@newgent.digital"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/whallin/newgent-website.git"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build && jampack ./dist",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^4.2.2",
+    "@astrojs/partytown": "^2.1.4",
+    "@astrojs/sitemap": "^3.3.0",
+    "@fontsource-variable/anek-latin": "^5.2.5",
+    "@fontsource-variable/geist-mono": "^5.2.5",
+    "@iconify-json/carbon": "^1.2.8",
+    "@iconify-json/twemoji": "^1.2.2",
+    "@tailwindcss/vite": "^4.0.17",
+    "astro": "^5.5.5",
+    "astro-icon": "^1.1.5",
+    "tailwindcss": "^4.0.17"
+  },
+  "devDependencies": {
+    "@divriots/jampack": "^0.33.0",
+    "@tailwindcss/typography": "^0.5.16",
+    "prettier": "^3.5.3",
+    "prettier-plugin-astro": "^0.14.1",
+    "prettier-plugin-astro-organize-imports": "^0.4.11",
+    "prettier-plugin-tailwindcss": "^0.6.11"
+  },
+  "engines": {
+    "node": ">=22.0.0",
+    "bun": ">=1.0.0"
+  },
+  "sideEffects": false
 }

@@ -1,0 +1,31 @@
+---
+import { Image } from "astro:assets";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import ImgLogoDark from "../assets/logo-dark.svg";
+import ImgLogoLight from "../assets/logo-light.svg";
+import LanguageSelector from "./LanguageSelector.astro";
+
+const astroLocale = Astro.currentLocale === "en" || Astro.currentLocale === "sv" ? Astro.currentLocale : "en";
+---
+
+<nav class="m-8 flex max-w-2xl flex-wrap items-center justify-between gap-4">
+  <a href={getRelativeLocaleUrl(astroLocale, "/")} class="w-fit transition-opacity hover:opacity-75 active:opacity-50">
+    <Image
+      src={ImgLogoDark}
+      alt="Newgent logo"
+      class="block h-8 w-auto select-none dark:hidden"
+      width={180}
+      height={30}
+      loading="eager"
+    />
+    <Image
+      src={ImgLogoLight}
+      alt="Newgent logo"
+      class="hidden h-8 w-auto select-none dark:block"
+      width={180}
+      height={30}
+      loading="eager"
+    />
+  </a>
+  <LanguageSelector />
+</nav>
